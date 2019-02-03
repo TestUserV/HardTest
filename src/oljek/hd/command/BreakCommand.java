@@ -5,6 +5,7 @@ import com.oljek.spigot.command.custom.Command;
 import com.oljek.spigot.command.custom.ConsoleExecute;
 import com.oljek.spigot.command.custom.PlayerExecute;
 import oljek.hd.Hard;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
@@ -39,11 +40,17 @@ public class BreakCommand {
         }
 
         bl.setType(Material.AIR);
+
+        p.sendMessage(StringUtil.inColor("&c&lHARD &7>> &fВы успешно сломали блок который находился в " + distanceLocation(p.getLocation(), bl.getLocation()) + " блоков от Вас."));
     }
 
     @ConsoleExecute
     public void onConsoleExecute(CommandSender sender, String[] args) {
         sender.sendMessage("Only for Players!");
+    }
+
+    private long distanceLocation(Location from, Location to) {
+        return (long) from.distance(to);
     }
 
 }
