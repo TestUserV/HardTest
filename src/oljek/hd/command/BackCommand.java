@@ -31,8 +31,6 @@ public class BackCommand {
             return;
         }
 
-        System.out.println("Test");
-
         p.teleport(DeathDate.lastDeathLocation.get(p.getUniqueId()));
     }
 
