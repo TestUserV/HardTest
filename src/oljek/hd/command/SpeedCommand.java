@@ -45,6 +45,9 @@ public class SpeedCommand {
                 return;
             }
 
+            if (!hard.checkPermission(p, "speed_custom"))
+                return;
+
             Player target = Bukkit.getPlayer(args[1]);
 
             if (target == null || !target.isOnline()) {
