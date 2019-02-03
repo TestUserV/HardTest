@@ -23,6 +23,9 @@ public class BreakCommand {
 
     @PlayerExecute
     public void onPlayerExecute(Player p, String[] args) {
+        if (!hard.checkPermission(p, "break"))
+            return;
+
         BlockIterator blockIterator = new BlockIterator(p.getLocation(), 0, 50);
 
         Block bl = null;
