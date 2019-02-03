@@ -275,6 +275,25 @@ public class SimpleHardManager implements HardManager {
         return setting;
     }
 
+    @Override
+    public void writeIPAddress(String owner, String ipAddress) {
+        ConfigManager.createFolder(hard, "users");
+        ConfigManager cfg = new ConfigManager(hard, "users/" + owner);
+        cfg.create();
+
+        cfg.set("ipAddress", ipAddress);
+        cfg.save();
+    }
+
+    @Override
+    public String getIPAddress(String owner) {
+        ConfigManager.createFolder(hard, "users");
+        ConfigManager cfg = new ConfigManager(hard, "users/" + owner);
+        cfg.create();
+
+        return cfg.getConfiguration().getString("ipAddress", "0.0.0.0");
+    }
+
     private ConfigManager getCfg(String owner) {
         ConfigManager.createFolder(hard, "users");
         ConfigManager user = new ConfigManager(hard, "users/" + owner);

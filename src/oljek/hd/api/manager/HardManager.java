@@ -40,4 +40,8 @@ public interface HardManager {
 
     Setting getSetting(String owner);
 
+    void writeIPAddress(String owner, String ipAddress);
+
+    String getIPAddress(String owner);
+
 }

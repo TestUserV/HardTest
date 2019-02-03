@@ -12,6 +12,7 @@ import oljek.hd.object.AnimatedScoreboard;
 import oljek.hd.object.Setting;
 import oljek.hd.util.RankUtil;
 import org.bukkit.Location;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -20,6 +21,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -38,6 +40,8 @@ public class JoinListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
+
+        hard.getHardManager().writeIPAddress(p.getName(), ((InetSocketAddress)((CraftPlayer)p).getHandle().playerConnection.networkManager.l).getAddress().getHostAddress());
 
         Setting setting = hard.getHardManager().getSetting(p.getName());
 

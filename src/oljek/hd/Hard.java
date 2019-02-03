@@ -93,6 +93,7 @@ public class Hard extends JavaPlugin {
                 CommandHandler.registerCommand(new TeleportCommand(instance));
                 CommandHandler.registerCommand(new BreakCommand(instance));
                 CommandHandler.registerCommand(new SpeedCommand(instance));
+                CommandHandler.registerCommand(new SeenCommand());
 
                 Bukkit.getPluginManager().registerEvents(new DeathListener(), instance);
                 Bukkit.getPluginManager().registerEvents(new UpdateListener(instance), instance);
