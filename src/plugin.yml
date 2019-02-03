@@ -1,0 +1,41 @@
+name: EMPIREHard
+main: oljek.hd.Hard
+version: 3.0.5
+description: 'Плагин предоставляющий базовый функционал под-серверу HARD на сервере ProEmpire'
+author: 'OlJeK'
+database: true
+prefix: 'HARD'
+depend:
+  - EMPIREAPI
+  - EMPIREScoreboard
+  - EMPIREClan
+  - EMPIREEconomy
+commands:
+  repair:
+    description: 'Починка какого-либо предмета.'
+    aliases: ['rr', 'починить']
+    permission: 'Hard.command.repair'
+    permission-message: '§c§lHARD §7>> §fВы не имеете прав!'
+  gamemode:
+    description: 'Изменение игрового режима'
+    aliases: ['режим']
+    permission: 'Hard.command.gamemode'
+    permission-message: '§c§lHARD §7>> §fВы не имеете прав!'
+
+permissions:
+  Hard.command.*:
+    description: 'Доступ ко всем командам на сервере HARD.'
+    default: op
+    children:
+      Hard.command.repair: true
+      Hard.command.gamemode: true
+      Hard.command.gamemode.other: true
+  Hard.command.repair:
+    description: 'Починить какой-либо предмет'
+    default: op
+  Hard.command.gamemode:
+    description: 'Изменить игровой режим'
+    default: op
+  Hard.command.gamemode.other:
+    description: 'Изменить игровой режим другому игроку'
+    default: op

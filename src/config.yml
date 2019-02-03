@@ -1,0 +1,8 @@
+#Максимальное кол-во домов для групп (UP (UltraPermissions))
+maxAmountHomes:
+  - Default: 2
+    Lord: 3
+    Prince: 7
+    King: 8
+    Caesar: 9
+    Emperor: 12
