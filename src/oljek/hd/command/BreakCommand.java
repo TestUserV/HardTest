@@ -30,8 +30,6 @@ public class BreakCommand {
             if (bl != null && bl.getType() != Material.AIR)
                 break;
 
-            System.out.println("test");
-
             bl = blockIterator.next();
         }
 
